@@ -1,0 +1,7 @@
+{
+  "name": "N3 Master - 日语口语语法速成",
+  "description": "一个专门为N3高频口语语法设计的深度学习与复习应用。结合艾宾浩斯记忆曲线算法与Gemini AI动态出题，帮助你快速掌握生存日语核心语法。",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
