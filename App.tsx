@@ -86,7 +86,8 @@ const App: React.FC = () => {
   }, [state]);
 
   const stats = useMemo(() => {
-    const items = Object.values(state.progress);
+    // Fixed: Explicitly cast progress values to UserProgress[] to resolve 'unknown' type errors
+    const items = Object.values(state.progress) as UserProgress[];
     const totalMastery = items.reduce((acc, p) => acc + p.masteryScore, 0);
     const avgStability = items.reduce((acc, p) => acc + p.stability, 0) / (items.length || 1);
     
@@ -97,7 +98,7 @@ const App: React.FC = () => {
     });
 
     return {
-      mastery: Math.round(totalMastery / GRAMMAR_DATA.length),
+      mastery: Math.round(totalMastery / (GRAMMAR_DATA.length || 1)),
       learnedCount: items.length,
       stability: avgStability.toFixed(1),
       distribution
